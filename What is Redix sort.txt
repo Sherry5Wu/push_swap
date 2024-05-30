@@ -1,4 +1,5 @@
-Radix sort is a non-comparative integer sorting algorithm that sorts numbers by processing individual digits. It operates on the principle that numbers can be sorted digit by digit, from the least significant digit to the most significant digit (LSD Radix Sort) or vice versa (MSD Radix Sort). Here’s a detailed explanation of the LSD Radix Sort, which is the more commonly used variant:
+Radix sort is a non-comparative integer sorting algorithm that sorts numbers by processing individual digits. It operates on the principle that numbers can be sorted digit by digit, from the least 
+significant digit to the most significant digit (LSD Radix Sort) or vice versa (MSD Radix Sort). Here’s a detailed explanation of the LSD Radix Sort, which is the more commonly used variant:
 
 How Radix Sort Works
 Determine the Maximum Number of Digits:
@@ -66,30 +67,19 @@ Buckets:
 8: [802]
 9: []
 Collected: [2, 24, 45, 66, 75, 90, 170, 802]
-Characteristics
-Stable: Radix sort preserves the relative order of numbers with the same digit value.
-Complexity: The time complexity is 
-�
-(
-�
-⋅
-(
-�
-+
-�
-)
-)
-O(d⋅(n+b)), where 
-�
-d is the number of digits, 
-�
-n is the number of elements, and 
-�
-b is the base (for decimal numbers, 
-�
-=
-10
-b=10).
+
+Characteristics:
+
+  Stable: Radix sort preserves the relative order of numbers with the same digit value.
+  Complexity: The time complexity is O(d⋅(n + b)), wehre d is the number of digits, n is the number of elements, and 
+              b is the base (for decimal numbers,b =10).
+  Non-comparative: Unlike comparative sorts (e.g., quicksort, mergesort), radix sort does not compare elements directly.
+
+
+Applications:
+
+Used for sorting integers, strings, and other types of data where the ordering can be digit-based.
+Particularly effective for large datasets with uniformly distributed values.
 Non-comparative: Unlike comparative sorts (e.g., quicksort, mergesort), radix sort does not compare elements directly.
 Applications
 Used for sorting integers, strings, and other types of data where the ordering can be digit-based.
