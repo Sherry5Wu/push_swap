@@ -55,12 +55,33 @@ void	push(t_stack **depa, t_stack **dest)
 	*dest = tmp;
 }
 
+// Shift up all elements of a stack by 1. The first element becomes the last one.
 void	rotate(t_stack **s, char stack_name, int if_print)
 {
+	t_stack		*tmp;
 
+	// If there is less than 2 elements, then return.
+	if (!s || !*s || !(*s) -> next)
+		return ;
+	tmp = *s;
+	while (*s)
+		*s = (*s) -> next;
+	(*s) -> next = tmp;
+	*s = tmp -> next;
+	tmp -> next = 0;
 }
 
+//  Shift down all elements of a stack by 1. The last element becomes the first one.
 void	rev_rotate(t_stack **s, char stack_name, int if_print)
 {
+	t_stack		*tmp;
 
+	// If there is less than 2 elements, then return.
+	if (!s || !*s || !(*s) -> next)
+		return ;
+	tmp = *s;
+	while (*s)
+		*s = (*s) -> next;
+	((*s) -> pre) -> next = 0;
+	(*s) -> next = tmp;
 }
