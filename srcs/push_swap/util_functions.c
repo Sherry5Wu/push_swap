@@ -6,15 +6,61 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 13:19:23 by jingwu            #+#    #+#             */
-/*   Updated: 2024/07/18 13:24:18 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/07/29 13:51:51 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	*free_node(t_stack **node)
+void	free_stack(t_stack **node)
 {
-	free(*node);
-	*node = 0;
-	return (0);
+	t_list	*tmp;
+
+	if (!node || !(*node))
+		return ;
+	while (*node)
+	{
+		tmp = (*node) -> next;
+		(*node) -> nbr = 0;
+		free(*node);
+		*node = tmp;
+	}
+}
+
+void	free_str(char **str)
+{
+	char	*tmp;
+
+	if (!str || !(*str))
+		return ;
+	while (*str)
+	{
+		tmp = *str;
+		str++;
+		free(tmp);
+	}
+	*str = NULL;
+}
+
+// fd = 2, is for standard error
+void	ft_error(void)
+{
+	write(2, "Error\n", 6);
+	exit(1);
+}
+
+int		is_sorted(t_stack *stack)
+{
+	t_stack		*tmp;
+
+	if (!stack || (stack -> next))
+		return (1);
+	tmp = stack;
+	while (tmp)
+	{
+		if (tmp -> nbr > (tmp ->next) -> nbr)
+			return (0);
+		tmp = tmp -> next;
+	}
+	return (1);
 }
