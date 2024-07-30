@@ -4,7 +4,7 @@ The Push swap project is a very simple and a highly straightforward algorithm pr
 
 Your goal? Write a program in C called push_swap which calculates and displays on the standard output the smallest program, made of Push swap language instructions, that sorts the integers received as arguments.
 
-## **The rules**
+**The rules**
 
 • You have 2 stacks named a and b. At the beginning:
 
@@ -15,7 +15,7 @@ Your goal? Write a program in C called push_swap which calculates and displays o
     • The goal is to sort in ascending order numbers into stack a. To do so you have the
 
 
-## **following operations at your disposal:**
+**operations at your disposal:**
 
     sa (swap a): Swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements.
 
