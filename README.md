@@ -1,4 +1,4 @@
-##### push_swap
+## push_swap
 
 The Push swap project is a very simple and a highly straightforward algorithm project: data must be sorted. You have at your disposal a set of integer values, 2 stacks, and a set of instructions to manipulate both stacks.
 
@@ -6,15 +6,13 @@ Your goal? Write a program in C called push_swap which calculates and displays o
 
 **The rules**
 
-• You have 2 stacks named a and b.
+• You have 2 stacks named a and b. At the beginning:
 
-• At the beginning:
+    ◦ The stack a contains a random amount of negative and/or positive numbers which cannot be duplicated.
 
-◦ The stack a contains a random amount of negative and/or positive numbers which cannot be duplicated.
+    ◦ The stack b is empty.
 
-◦ The stack b is empty.
-
-• The goal is to sort in ascending order numbers into stack a. To do so you have the
+    • The goal is to sort in ascending order numbers into stack a. To do so you have the
 
 
 -- following operations at your disposal:
