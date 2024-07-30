@@ -38,3 +38,14 @@ Your goal? Write a program in C called push_swap which calculates and displays o
     rrb (reverse rotate b): Shift down all elements of stack b by 1. The last element becomes the first one.
 
     rrr : rra and rrb at the same time.
+
+# Resources
+
+	https://medium.com/@ayogun/push-swap-c1f5d2d41e97
+ 
+	https://github.com/ayogun/push_swap/blob/main/includes/push_swap.h
+ 
+	https://github.com/48d31kh413k/1337-push_swap-42/blob/main/src/quicksort.c
+ 
+	https://github.com/LeeSinLiang/Push-Swap/tree/main/srcs
+
