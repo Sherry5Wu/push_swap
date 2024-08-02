@@ -6,27 +6,11 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 13:51:33 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/01 13:08:58 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/02 11:42:53 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
-
-/*
-	Algorithm:
-	- push everything from STACK_A to STACK_B but in descending order.Why? Because
-	  after I push them back to STACK_A, they will be automatically sorted.
-
-	- Stacks are kind of circular linked list. It means, the last element of the
-	  stack is actually not the last element. It is actually an element before the
-	  first element.
-
-	-  If the number you push from STACK_A to STACK_B is going to be the new biggest
-	   or the smallest number, you should place it just above the old biggest number
-	   in the STACK_B.
-*/
-
-
+#include "../../includes/push_swap.h"
 
 /*
 	Function:
@@ -61,9 +45,15 @@ t_stack		*push_sort_b(t_stack **stack_a)
 	return(stack_b);
 }
 
-t_stack		**sort_a(t_stack **stack_a, t_stack **stack_b)
+t_stack		**push_sort_a(t_stack **stack_a, t_stack **stack_b)
 {
-	???????????????????
+	int		chepst_n;
+
+	while(*stack_b)
+	{
+		chepst_n = find_cheapeast_num_to_a(*stack_a, *stack_b);
+		move_to_a(stack_a, stack_b, chepst_n);
+	}
 }
 
 /*
@@ -76,15 +66,12 @@ t_stack		**sort_a(t_stack **stack_a, t_stack **stack_b)
 */
 void	sort_till_3(t_stack **stack_a, t_stack **stack_b)
 {
-	int		cheapest_num;
-//	t_stack	*tmp;
+	int		cheapest_n;
 
 	while (stack_size(*stack_a) > 3 && !is_sorted(*stack_a))
 	{
-//		tmp = *stack_a;
-//		i = caculator_rotate_atob(*stack_a, *stack_b); // from there is different from him
-		cheapest_num = find_cheapeast_num(*stack_a, *stack_b);
-		move_to_b(stack_a, stack_b, cheapest_num);
+		cheapest_n = find_cheapeast_num_to_b(*stack_a, *stack_b);
+		move_to_b(stack_a, stack_b, cheapest_n);
 	}
 }
 

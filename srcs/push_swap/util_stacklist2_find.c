@@ -6,11 +6,11 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 14:25:43 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/01 10:24:53 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/02 11:43:13 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 // find the minimum value in a stack
 int		min_value(t_stack *stack)

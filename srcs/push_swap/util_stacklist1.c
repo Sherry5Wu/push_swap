@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util_stacklist.c                                   :+:      :+:    :+:   */
+/*   util_stacklist1.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 10:29:56 by jingwu            #+#    #+#             */
-/*   Updated: 2024/07/30 14:22:59 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/02 12:55:17 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	stack_add_back(t_stack **stack, t_stack *new)
 {
@@ -46,7 +46,7 @@ t_stack	*stack_newnode(int content)
 int	stack_size(t_stack *stack)
 {
 	int		size;
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	tmp = stack;
 	size = 0;

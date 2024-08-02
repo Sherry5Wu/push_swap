@@ -6,11 +6,11 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 13:36:19 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/01 14:00:23 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/02 11:42:42 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 /*
 	swap the top two elements in the stack.

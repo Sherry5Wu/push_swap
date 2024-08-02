@@ -6,11 +6,11 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 13:48:19 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/01 14:17:30 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/02 11:42:33 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 /*
 	Shift up all elements of a stack by 1. The first element becomes the last one.
@@ -71,14 +71,21 @@ void	rotate_rr(t_stack **stack_a, t_stack **stack_b, int if_print)
 void	rev_rotate(t_stack **s, char direction, int if_print)
 {
 	t_stack		*tmp;
+	int			i;
 
 	if (!s || !*s || !(*s) -> next)
 		return ;
 	tmp = *s;
+	i = 0;
 	while (*s)
+	{
 		*s = (*s) -> next;
-	((*s) -> pre) -> next = 0;
+		i++;
+	}
 	(*s) -> next = tmp;
+	while (i-- > 1)
+		tmp = tmp -> next;
+	tmp -> next = NULL;
 	if (if_print == 0)
 	{
 		if (direction == 1)

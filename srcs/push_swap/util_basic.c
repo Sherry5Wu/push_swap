@@ -6,24 +6,24 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 13:19:23 by jingwu            #+#    #+#             */
-/*   Updated: 2024/07/30 14:31:13 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/02 13:05:29 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-void	free_stack(t_stack **node)
+void	free_stack(t_stack **stack)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
-	if (!node || !(*node))
+	if (!stack || !(*stack))
 		return ;
-	while (*node)
+	while (*stack)
 	{
-		tmp = (*node) -> next;
-		(*node) -> nbr = 0;
-		free(*node);
-		*node = tmp;
+		tmp = (*stack) -> next;
+		(*stack) -> nbr = 0;
+		free(*stack);
+		*stack = tmp;
 	}
 }
 
@@ -50,6 +50,10 @@ void	ft_error(void)
 }
 
 /*
+	the order should be in ascending.
+	Attention:
+		when while loop the stack, the condtion should be "tmp -> next != NULL",
+		 not "tmp != NULL"
 	Return value:
 		1:	sorted;
 		0:	not sorted;
@@ -58,12 +62,12 @@ int		is_sorted(t_stack *stack)
 {
 	t_stack		*tmp;
 
-	if (!stack || (stack -> next))
+	if (!stack || !(stack -> next))
 		return (1);
 	tmp = stack;
-	while (tmp)
+	while (tmp -> next)
 	{
-		if (tmp -> nbr > (tmp ->next) -> nbr)
+		if (tmp -> nbr > (tmp -> next) -> nbr)
 			return (0);
 		tmp = tmp -> next;
 	}

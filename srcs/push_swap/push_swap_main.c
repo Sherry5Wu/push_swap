@@ -6,11 +6,11 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 09:38:23 by jingwu            #+#    #+#             */
-/*   Updated: 2024/07/29 14:42:28 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/02 11:42:50 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 /*
 	https://medium.com/@ayogun/push-swap-c1f5d2d41e97

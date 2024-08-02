@@ -6,11 +6,11 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 13:26:28 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/01 14:35:48 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/02 11:42:27 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 /*
 	the function is for pushing num from a stack to the other one(a to b, or b to a),
