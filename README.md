@@ -1,4 +1,4 @@
-## **push_swap**
+# **push_swap**
 
 The Push swap project is a very simple and a highly straightforward algorithm project: data must be sorted. You have at your disposal a set of integer values, 2 stacks, and a set of instructions to manipulate both stacks.
 
@@ -38,6 +38,19 @@ Your goal? Write a program in C called push_swap which calculates and displays o
     rrb (reverse rotate b): Shift down all elements of stack b by 1. The last element becomes the first one.
 
     rrr : rra and rrb at the same time.
+
+# Algorithm
+
+	- push everything from STACK_A to STACK_B but in descending order.Why? Because
+	  after I push them back to STACK_A, they will be automatically sorted.
+
+	- Stacks are kind of circular linked list. It means, the last element of the
+	  stack is actually not the last element. It is actually an element before the
+	  first element.
+
+	-  If the number you push from STACK_A to STACK_B is going to be the new biggest
+	   or the smallest number, you should place it just above the old biggest number
+	   in the STACK_B.
 
 # Resources
 
