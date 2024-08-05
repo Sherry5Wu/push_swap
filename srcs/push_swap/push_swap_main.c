@@ -6,18 +6,12 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 09:38:23 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/02 11:42:50 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/05 13:43:00 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-/*
-	https://medium.com/@ayogun/push-swap-c1f5d2d41e97
-	https://github.com/ayogun/push_swap/blob/main/includes/push_swap.h
-	https://github.com/48d31kh413k/1337-push_swap-42/blob/main/src/quicksort.c
-	https://github.com/LeeSinLiang/Push-Swap/tree/main/srcs
-*/
 int		main(int ac, char **av)
 {
 	t_stack		*a;

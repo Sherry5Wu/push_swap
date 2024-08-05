@@ -6,11 +6,44 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 13:51:33 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/02 11:42:53 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/05 13:39:14 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
+
+/*
+	The function is push elements from stack_a to stack_b one by one, until only 3 elements
+	left in stack_a.
+
+	For each push, the element from stack_a should be pushed to the right postion
+	in stack_b. So before pushing, we need to calculate the cost of pushing each element
+	in stack_a to stack_b, to find the cheapest element which using least operations.
+*/
+void	sort_till_3(t_stack **stack_a, t_stack **stack_b)
+{
+	int			steps;
+	t_stack		*tmp;
+
+	while (stack_size(*stack_a) > 3 && !is_sorted(*stack_a))
+	{
+		tmp = *stack_a;
+		steps = find_cheapest_steps_to_b(*stack_a, *stack_b);
+		while (steps >= 0 && tmp)
+		{
+			if (if_rarb(*stack_a, *stack_b, tmp -> nbr, 1) == steps)
+				steps = execute_rarb(stack_a, stack_b, tmp -> nbr, 1);
+			else if (if_rrarb(*stack_a, *stack_b, tmp -> nbr, 1) == steps)
+				steps = execute_rrarb(stack_a, stack_b, tmp -> nbr, 1);
+			else if (if_rarrb(*stack_a, *stack_b, tmp -> nbr, 1) == steps)
+				steps = execute_rarrb(stack_a, stack_b, tmp -> nbr, 1);
+			else if (if_rrarrb(*stack_a, *stack_b, tmp -> nbr, 1) == steps)
+				steps = execute_rrarrb(stack_a, stack_b, tmp -> nbr, 1);
+			else
+				tmp = tmp -> next;
+		}
+	}
+}
 
 /*
 	Function:
@@ -47,32 +80,28 @@ t_stack		*push_sort_b(t_stack **stack_a)
 
 t_stack		**push_sort_a(t_stack **stack_a, t_stack **stack_b)
 {
-	int		chepst_n;
+	int			steps;
+	t_stack		*tmp;
 
 	while(*stack_b)
 	{
-		chepst_n = find_cheapeast_num_to_a(*stack_a, *stack_b);
-		move_to_a(stack_a, stack_b, chepst_n);
+		tmp = *stack_a;
+		steps = find_cheapest_steps_to_b(*stack_a, *stack_b);
+		while (steps >= 0 && tmp)
+		{
+			if (if_rarb(*stack_a, *stack_b, tmp -> nbr, 2) == steps)
+				steps = execute_rarb(stack_a, stack_b, tmp -> nbr, 2);
+			else if (if_rrarb(*stack_a, *stack_b, tmp -> nbr, 2) == steps)
+				steps = execute_rrarb(stack_a, stack_b, tmp -> nbr, 2);
+			else if (if_rarrb(*stack_a, *stack_b, tmp -> nbr, 2) == steps)
+				steps = execute_rarrb(stack_a, stack_b, tmp -> nbr, 2);
+			else if (if_rrarrb(*stack_a, *stack_b, tmp -> nbr, 2) == steps)
+				steps = execute_rrarrb(stack_a, stack_b, tmp -> nbr, 2);
+			else
+				tmp = tmp -> next;
+		}
 	}
-}
-
-/*
-	The function is push elements from stack_a to stack_b one by one, until only 3 elements
-	left in stack_a.
-
-	For each push, the element from stack_a should be pushed to the right postion
-	in stack_b. So before pushing, we need to calculate the cost of pushing each element
-	in stack_a to stack_b, to find the cheapest element which using least operations.
-*/
-void	sort_till_3(t_stack **stack_a, t_stack **stack_b)
-{
-	int		cheapest_n;
-
-	while (stack_size(*stack_a) > 3 && !is_sorted(*stack_a))
-	{
-		cheapest_n = find_cheapeast_num_to_b(*stack_a, *stack_b);
-		move_to_b(stack_a, stack_b, cheapest_n);
-	}
+	return (stack_a);
 }
 
 /*
@@ -130,7 +159,7 @@ void	sort_ascending(t_stack **stack_a)
 	else
 	{
 		stack_b = push_sort_b(stack_a); // get a sorted stack_b
-		stack_a = sort_a(stack_a, &stack_b); // push elemennts from b to a.
+		stack_a = push_sort_a(stack_a, &stack_b); // push elemennts from b to a.
 		min = min_value(*stack_a); // find the minimum value in stack_a
 		i = find_index(*stack_a, min); // find the index of the smallest number in stack_a
 		// if the index of min_value is closer to the top, then rotate stack_a to bring

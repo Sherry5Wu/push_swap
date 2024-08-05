@@ -6,23 +6,19 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 12:03:36 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/02 13:05:45 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/05 13:41:47 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-//# include <stdlib.h> // for functions free, exit
 # include "../lib/libft/libft.h"
-//# include "../lib/ft_printf/ft_printf.h"
 
 typedef struct s_stack
 {
 	int					nbr;
-//	int					index;
 	struct s_stack		*next;
-//	struct s_stack		*pre;
 }	t_stack;
 
 // process_arg
@@ -38,15 +34,15 @@ t_stack		**push_sort_a(t_stack **stack_a, t_stack **stack_b);
 void		sort_3(t_stack **stack);
 void		sort_till_3(t_stack **stack_a, t_stack **stack_b);
 
-// sort_move
-void		move_to_b(t_stack **stack_a, t_stack ** stack_b, int num);
-void		move_to_a(t_stack **stack_a, t_stack ** stack_b, int num);
+// sort_caculate_steps
+int			find_cheapest_steps_to_b(t_stack *a, t_stack *b);
+int			find_cheapest_steps_to_a(t_stack *a, t_stack *b);
 
-// sort_move_assit
-int			find_cheapeast_num_to_b(t_stack *a, t_stack *b);
-int			find_cheapeast_num_to_a(t_stack *a, t_stack *b);
-int			caculate_step_to_b(t_stack *a, t_stack *b, int num);
-int			caculate_step_to_a(t_stack *a, t_stack *b, int num);
+// sort_caculate_steps_assit
+int			if_rarb(t_stack *stack_a, t_stack *stack_b, int num, int direction);
+int			if_rrarrb(t_stack *stack_a, t_stack *stack_b, int num, int direction);
+int			if_rrarb(t_stack *stack_a, t_stack *stack_b, int num, int direction);
+int			if_rarrb(t_stack *stack_a, t_stack *stack_b, int num, int direction);
 
 // operations_swap_push
 void		swap(t_stack **s, int direction, int if_print);
@@ -59,10 +55,10 @@ void		rev_rotate(t_stack **s, char direction, int if_print);
 void		rev_rotate_rrr(t_stack **stack_a, t_stack **stack_b, int if_print);
 
 // operation_combs
-void		execute_rarb(t_stack **stack_a, t_stack **stack_b, int num, int direction);
-void		execute_rrarrb(t_stack **stack_a, t_stack **stack_b, int num, int direction);
-void		execute_rrarb(t_stack **stack_a, t_stack **stack_b, int num, int direction);
-void		execute_rarrb(t_stack **stack_a, t_stack **stack_b, int num, int direction);
+int			execute_rarb(t_stack **stack_a, t_stack **stack_b, int num, int direction);
+int			execute_rrarrb(t_stack **stack_a, t_stack **stack_b, int num, int direction);
+int			execute_rrarb(t_stack **stack_a, t_stack **stack_b, int num, int direction);
+int			execute_rarrb(t_stack **stack_a, t_stack **stack_b, int num, int direction);
 
 // util_basic
 void		free_stack(t_stack **stack);

@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 14:25:43 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/02 11:43:13 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/05 09:32:32 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ int		find_index(t_stack *stack, int value)
 	Steps:
 		- if the nbr_push is greater than the biggest number or smaller than the smallest
 		  number in the stack, then the right place is at the top of biggest number.
-		- else  the right place should be between num_a and num_b, that num_a > nbr_push,
-		  and num_b < nbr_push.
+		- else  the right place should be between num_a and num_b, that
+		"num_a > nbr_push > num_b".
 		  	-- we can loop the stack the find the right place, but the loop will miss one
 			   condition, that is when num_a is the first number and num_b is the last
 			   number, so we need to use a seperate "if" for checking this condition.

@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 13:36:19 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/02 11:42:42 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/05 08:19:21 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ void	push(t_stack **depa, t_stack **dest, int direction, int if_print)
 
 	if (!depa || !dest || !*depa)
 		return ;
-	tmp = (*depa) -> next;
+	tmp = *depa;
+	*depa = (*depa) -> next;
 	tmp -> next = *dest;
 	*dest = tmp;
 	if (if_print == 0)

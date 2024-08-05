@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 13:48:19 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/02 11:42:33 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/05 08:31:41 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	rotate(t_stack **s, char direction, int if_print)
 	if (!s || !*s || !(*s) -> next)
 		return ;
 	tmp = *s;
-	while (*s)
+	while ((*s) -> next)
 		*s = (*s) -> next;
 	(*s) -> next = tmp;
 	*s = tmp -> next;
@@ -77,7 +77,7 @@ void	rev_rotate(t_stack **s, char direction, int if_print)
 		return ;
 	tmp = *s;
 	i = 0;
-	while (*s)
+	while ((*s) -> next)
 	{
 		*s = (*s) -> next;
 		i++;
