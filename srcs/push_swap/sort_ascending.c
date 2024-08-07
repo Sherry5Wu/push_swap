@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 13:51:33 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/05 13:39:14 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/07 12:37:44 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,12 +128,12 @@ void	sort_3(t_stack **stack)
 	else if ((*stack) -> nbr == max)
 	{
 		rotate(stack, 1, 0);
-		if (!is_sorted(stack))
+		if (!is_sorted(*stack))
 			rotate(stack, 1, 0);
 	}
 	else
 	{
-		if (find_index(stack, min) == 1)
+		if (find_index(*stack, min) == 1)
 			swap(stack, 1, 0);
 		else
 			rev_rotate(stack, 1, 0);
@@ -152,9 +152,9 @@ void	sort_ascending(t_stack **stack_a)
 	int			i;
 	int			min;
 
-	if (stack_size(stack_a) == 2)
+	if (stack_size(*stack_a) == 2)
 		swap(stack_a, 1, 0);
-	else if (stack_size(stack_a) == 3)
+	else if (stack_size(*stack_a) == 3)
 		sort_3(stack_a);
 	else
 	{

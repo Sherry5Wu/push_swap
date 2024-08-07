@@ -6,23 +6,26 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 12:20:29 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/02 11:42:47 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/07 13:03:01 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
+
+
+#include <stdio.h>
 
 int		is_duplicated(t_stack *stack)
 {
 	t_stack		*tmp_outer;
 	t_stack		*tmp_inner;
 
-	if (!stack)
+	if (!stack || !(stack -> next))
 		return (0);
 	tmp_outer = stack;
 	while (tmp_outer)
 	{
-		tmp_inner = stack -> next;
+		tmp_inner = tmp_outer -> next;
 		while(tmp_inner)
 		{
 			if ((tmp_outer -> nbr) == (tmp_inner -> nbr))
@@ -38,24 +41,27 @@ int		is_duplicated(t_stack *stack)
 	sub_process is to split (seperator is space) *str to **str, then add each valid
 	integer into stack a.
 */
-t_stack	*sub_process(char *str)
+void	sub_process(char *str, t_stack **a)
 {
-	t_stack		*a;
 	char		**split_str;
 	int			i;
 	int			j;
 
-	a = NULL;
-	split_str = ft_split((char const)str, 32);
+	i = 0;
+	split_str = ft_split(str, 32);
+	if (!split_str)
+	{
+		free_stack(a);
+		exit(1);
+	}
 	while (split_str[i])
 	{
 		j = ft_atoi_v2(split_str[i]);
-		stack_add_back(&a, stack_newnode(j));
+		stack_add_back(a, stack_newnode(j));
 		i++;
 	}
 	free_str(split_str);
-	free(split_str); // ????? why double freed split_str here???????
-	return (a);
+//	free(split_str); // ????? why double freed split_str here???????
 }
 
 /*
@@ -87,6 +93,7 @@ int		ft_atoi_v2(char *str)
 	integer = num * sign;
 	if (integer > 2147483647 || integer < -2147483648)
 		ft_error();
+	printf("integer=%lld\n", integer);  // remember to delete the line.
 	return (integer);
 }
 
@@ -104,20 +111,20 @@ t_stack	*process_args(int argc, char **argv)
 {
 	t_stack		*a;
 	int			i;
-	int			j;
+//	int			j;
 
 	a = NULL;
+	printf("argc=%d\n", argc); // delete it after testing
 	if (argc < 2)
-		ft_error();
+		exit(1);
 	if (argc == 2)
-		a = sub_process(argv[1]);
+		sub_process(argv[1], &a);
 	else
 	{
 		i = 1;
 		while (i < argc)
 		{
-			j = ft_atoi_v2(argv[i]);
-			stack_add_back(&a, stack_newnode(j));
+			sub_process(argv[i], &a);
 			i++;
 		}
 	}

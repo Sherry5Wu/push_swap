@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 09:38:23 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/05 13:43:00 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/07 08:39:33 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		main(int ac, char **av)
 	a = process_args((ac), av);
 	if (!a || is_duplicated(a))
 	{
-		free_stack(a);
+		free_stack(&a);
 		ft_error();
 	}
 	if (!is_sorted(a))
