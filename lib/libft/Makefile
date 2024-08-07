@@ -14,28 +14,32 @@ OBJS_B = ${SRCS_B:.c=.o}
 AR     = ar rc
 RM     = rm -f
 CC     = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I.
 
 NAME = libft.a
 
 all: ${NAME}
 bonus: .bonus
 
-${NAME}: ${OBJS}
-	${AR} ${NAME} $^
+${NAME}: ${OBJS} $(HEADER)
+	@${AR} ${NAME} $^
+	@echo "libft compiled!"
 
 %.o: %.c
-	${CC} ${CFLAGS} -c $< -o $@
+	@${CC} ${CFLAGS} -c $< -o $@
+	@echo "Compiling: $<"
 
 .bonus: ${NAME} ${OBJS_B}
 	${AR} ${NAME} $^
 	@touch .bonus
 
 clean:
-	${RM} ${OBJS} ${OBJS_B}
+	@${RM} ${OBJS} ${OBJS_B}
+	@echo "Libft object files are cleaned!"
 
 fclean:	clean
-	${RM} ${NAME} .bonus
+	@${RM} ${NAME} .bonus
+	@echo "Libft library file is cleaned!"
 
 re:	fclean all
 
