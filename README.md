@@ -60,3 +60,10 @@ Your goal? Write a program in C called push_swap which calculates and displays o
  
 	https://github.com/LeeSinLiang/Push-Swap/tree/main/srcs
 
+# Testers and Visualizer
+
+	https://github.com/gemartin99/Push-Swap-Tester
+
+	https://github.com/LeoFu9487/push_swap_tester
+
+	https://github.com/o-reo/push_swap_visualizer
