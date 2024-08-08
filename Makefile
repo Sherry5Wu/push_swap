@@ -27,7 +27,7 @@ $(NAME): $(OBJS)
 clean:
 	@$(RM) $(OBJS)
 	@$(MAKE) -C $(LIB_DIR) clean
-	@echo "All objects are cleaned!"
+	@echo "push_swap objects are cleaned!"
 
 fclean: clean
 	@$(RM) $(NAME)

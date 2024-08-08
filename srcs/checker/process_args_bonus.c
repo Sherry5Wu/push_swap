@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process_args.c                                     :+:      :+:    :+:   */
+/*   process_args_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 12:20:29 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/08 14:58:41 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/08 13:59:21 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,12 +88,13 @@ int		ft_atoi_v2(char *str)
 	while (*str)
 	{
 		if (!ft_isdigit(*str))
-			write(1, "Must be all numbers\n", 20);
+			ft_error();
 		num = num * 10 + *str - '0';
 		str++;
 	}
 	if ((num * sign) > 2147483647 || (num * sign) < -2147483648)
-		write(1, "Input is overflowed\n", 20);
+		ft_error();
+//	printf("integer=%lld\n", num * sign);  // remember to delete the line.
 	return ((num * sign));
 }
 
@@ -114,6 +115,7 @@ t_stack	*process_args(int argc, char **argv)
 
 	a = NULL;
 	i = 1;
+//	printf("agrc=%d\n", argc);  // remember to delete the line.
 	if (argc < 2 || argc > ARG_MAX_NUM)
 		exit(1);
 	while (i < argc)

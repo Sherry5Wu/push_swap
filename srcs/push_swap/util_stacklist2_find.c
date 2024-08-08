@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 14:25:43 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/08 08:06:08 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/08 11:57:20 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,11 @@ int		max_value(t_stack *stack)
 int		find_index(t_stack *stack, int value)
 {
 	int			index;
-	t_stack		*tmp;
 
 	index = 0;
-	tmp = stack;
-	while (tmp && (tmp -> nbr) != value)
+	while (stack && (stack -> nbr) != value)
 	{
-		tmp = tmp -> next;
+		stack = stack -> next;
 		index++;
 	}
 	return (index);
@@ -86,14 +84,14 @@ int		find_place_in_stack_b(t_stack *stack, int nbr_push)
 	t_stack	*tmp;
 
 	index = 1;
-	if (nbr_push > max_value(stack) || nbr_push < min_value(stack))
-		index = find_index(stack, max_value(stack));
-	else if (nbr_push > (stack -> nbr) && nbr_push < (stack_last(stack) -> nbr))
+	if (nbr_push > (stack -> nbr) && nbr_push < (stack_last(stack) -> nbr))
 		index = 0;
+	else if  (nbr_push > max_value(stack) || nbr_push < min_value(stack))
+		index = find_index(stack, max_value(stack));
 	else
 	{
 		tmp = stack-> next;
-		while (tmp && (nbr_push > (stack -> nbr) || nbr_push < (tmp -> nbr)))
+		while ((tmp -> next) && (nbr_push > (stack -> nbr) || nbr_push < (tmp -> nbr)))
 		{
 			stack = stack -> next;
 			tmp = tmp -> next;
@@ -128,14 +126,14 @@ int		find_place_in_stack_a(t_stack *stack, int nbr_push)
 	t_stack	*tmp;
 
 	index = 1;
-	if (nbr_push > max_value(stack) || nbr_push < min_value(stack))
-		index = find_index(stack, min_value(stack));
-	else if (nbr_push < (stack -> nbr) && nbr_push > (stack_last(stack) -> nbr))
+	if (nbr_push < (stack -> nbr) && nbr_push > (stack_last(stack) -> nbr))
 		index = 0;
+	else if (nbr_push > max_value(stack) || nbr_push < min_value(stack))
+		index = find_index(stack, min_value(stack));
 	else
 	{
 		tmp = stack-> next;
-		while (tmp && (nbr_push < (stack -> nbr) || nbr_push > (tmp -> nbr)))
+		while ((tmp -> next) && (nbr_push < (stack -> nbr) || nbr_push > (tmp -> nbr)))
 		{
 			stack = stack -> next;
 			tmp = tmp -> next;

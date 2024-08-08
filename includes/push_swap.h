@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 12:03:36 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/08 09:41:19 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/08 12:52:12 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define PUSH_SWAP_H
 
 # include "../lib/libft/libft.h"
+
+# define ARG_MAX_NUM (1025)
 
 typedef struct s_stack
 {
