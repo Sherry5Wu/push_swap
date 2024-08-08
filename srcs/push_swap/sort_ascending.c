@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 13:51:33 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/07 12:37:44 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/08 09:24:55 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,9 @@ t_stack		*push_sort_b(t_stack **stack_a)
 		sort_3(stack_a);
 	return(stack_b);
 }
-
+/*
+	The function pushs elements from stack_b to stack_a one by one, and following acending order.
+*/
 t_stack		**push_sort_a(t_stack **stack_a, t_stack **stack_b)
 {
 	int			steps;
@@ -85,8 +87,8 @@ t_stack		**push_sort_a(t_stack **stack_a, t_stack **stack_b)
 
 	while(*stack_b)
 	{
-		tmp = *stack_a;
-		steps = find_cheapest_steps_to_b(*stack_a, *stack_b);
+		tmp = *stack_b;
+		steps = find_cheapest_steps_to_a(*stack_a, *stack_b);
 		while (steps >= 0 && tmp)
 		{
 			if (if_rarb(*stack_a, *stack_b, tmp -> nbr, 2) == steps)

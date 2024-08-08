@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 12:03:36 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/05 13:41:47 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/08 09:41:19 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ typedef struct s_stack
 	struct s_stack		*next;
 }	t_stack;
 
-// process_arg
+// process_args
 t_stack		*process_args(int argc, char **argv);
-t_stack		*sub_process(char *str);
+void		sub_process(char *str, t_stack **a);
 int			ft_atoi_v2(char *str);
 int			is_duplicated(t_stack *stack);
 

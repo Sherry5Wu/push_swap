@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 12:20:29 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/07 13:03:01 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/08 09:09:25 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int		ft_atoi_v2(char *str)
 	integer = num * sign;
 	if (integer > 2147483647 || integer < -2147483648)
 		ft_error();
-	printf("integer=%lld\n", integer);  // remember to delete the line.
+//	printf("integer=%lld\n", integer);  // remember to delete the line.
 	return (integer);
 }
 
@@ -114,7 +114,6 @@ t_stack	*process_args(int argc, char **argv)
 //	int			j;
 
 	a = NULL;
-	printf("argc=%d\n", argc); // delete it after testing
 	if (argc < 2)
 		exit(1);
 	if (argc == 2)

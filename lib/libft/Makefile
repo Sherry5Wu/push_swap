@@ -8,37 +8,38 @@ SRCS_B = ft_lstnew_bonus.c ft_lstadd_front_bonus.c 	ft_lstsize_bonus.c ft_lstlas
 		 ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c\
 		 ft_lstmap_bonus.c
 
-OBJS   = ${SRCS:.c=.o}
-OBJS_B = ${SRCS_B:.c=.o}
+OBJS   = $(SRCS:.c=.o)
+OBJS_B = $(SRCS_B:.c=.o)
 
 AR     = ar rc
 RM     = rm -f
 CC     = cc
-CFLAGS = -Wall -Wextra -Werror -I.
+CFLAGS = -Wall -Wextra -Werror
+INCLUDE = -I.
 
 NAME = libft.a
 
-all: ${NAME}
+all: $(NAME)
 bonus: .bonus
 
-${NAME}: ${OBJS} $(HEADER)
-	@${AR} ${NAME} $^
+$(NAME): $(OBJS)
+	@$(AR) $(NAME) $^
 	@echo "libft compiled!"
 
 %.o: %.c
-	@${CC} ${CFLAGS} -c $< -o $@
+	@$(CC) $(CFLAGS) -fPIC $(INCLUDE) -c $< -o $@
 	@echo "Compiling: $<"
 
-.bonus: ${NAME} ${OBJS_B}
-	${AR} ${NAME} $^
+.bonus: $(NAME) $(OBJS_B)
+	$(AR) $(NAME) $^
 	@touch .bonus
 
 clean:
-	@${RM} ${OBJS} ${OBJS_B}
+	@$(RM) $(OBJS) $(OBJS_B)
 	@echo "Libft object files are cleaned!"
 
 fclean:	clean
-	@${RM} ${NAME} .bonus
+	@$(RM) $(NAME) .bonus
 	@echo "Libft library file is cleaned!"
 
 re:	fclean all
