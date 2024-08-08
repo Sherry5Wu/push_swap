@@ -66,4 +66,6 @@ Your goal? Write a program in C called push_swap which calculates and displays o
 
 	https://github.com/LeoFu9487/push_swap_tester
 
+ 	https://github.com/LeoFu9487/push_swap_tester
+
 	https://github.com/o-reo/push_swap_visualizer
