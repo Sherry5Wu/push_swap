@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 12:20:29 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/08 13:59:21 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/09 11:42:33 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,12 +88,12 @@ int		ft_atoi_v2(char *str)
 	while (*str)
 	{
 		if (!ft_isdigit(*str))
-			ft_error();
+			write(1, "Must be all numbers\n", 20);
 		num = num * 10 + *str - '0';
 		str++;
 	}
 	if ((num * sign) > 2147483647 || (num * sign) < -2147483648)
-		ft_error();
+		write(1, "Input is overflowed\n", 20);
 //	printf("integer=%lld\n", num * sign);  // remember to delete the line.
 	return ((num * sign));
 }

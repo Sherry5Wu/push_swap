@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 13:51:33 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/08 13:11:15 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/09 12:15:49 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ void	sort_till_3(t_stack **stack_a, t_stack **stack_b)
 		steps = find_cheapest_steps_to_b(*stack_a, *stack_b);
 		while (steps >= 0 && tmp)
 		{
-			if (steps == if_rarb(*stack_a, *stack_b, tmp -> nbr, 1))
-				steps = execute_rarb(stack_a, stack_b, tmp -> nbr, 1);
-			else if (steps == if_rrarb(*stack_a, *stack_b, tmp -> nbr, 1))
-				steps = execute_rrarb(stack_a, stack_b, tmp -> nbr, 1);
+			if (steps == if_rrarrb(*stack_a, *stack_b, tmp -> nbr, 1))
+				steps = execute_rrarrb(stack_a, stack_b, tmp -> nbr, 1);
 			else if (steps == if_rarrb(*stack_a, *stack_b, tmp -> nbr, 1))
 				steps = execute_rarrb(stack_a, stack_b, tmp -> nbr, 1);
-			else if (steps == if_rrarrb(*stack_a, *stack_b, tmp -> nbr, 1))
-				steps = execute_rrarrb(stack_a, stack_b, tmp -> nbr, 1);
+			else if (steps == if_rrarb(*stack_a, *stack_b, tmp -> nbr, 1))
+				steps = execute_rrarb(stack_a, stack_b, tmp -> nbr, 1);
+			else if (steps == if_rarb(*stack_a, *stack_b, tmp -> nbr, 1))
+				steps = execute_rarb(stack_a, stack_b, tmp -> nbr, 1);
 			else
 				tmp = tmp -> next;
 		}
@@ -62,7 +62,7 @@ void	sort_till_3(t_stack **stack_a, t_stack **stack_b)
 	4, because of every time we will push a element to the its right postion in stack_b
 		from stack_a, so at the end we will get a sorted stack_b but in descending order;
 */
-t_stack		*push_sort_b(t_stack **stack_a)
+t_stack	*push_sort_b(t_stack **stack_a)
 {
 	t_stack		*stack_b;
 
@@ -75,30 +75,31 @@ t_stack		*push_sort_b(t_stack **stack_a)
 		sort_till_3(stack_a, &stack_b);
 	if (!is_sorted(*stack_a))
 		sort_3(stack_a);
-	return(stack_b);
+	return (stack_b);
 }
+
 /*
 	The function pushs elements from stack_b to stack_a one by one, and following acending order.
 */
-t_stack		**push_sort_a(t_stack **stack_a, t_stack **stack_b)
+t_stack	**push_sort_a(t_stack **stack_a, t_stack **stack_b)
 {
 	int			steps;
 	t_stack		*tmp;
 
-	while(*stack_b)
+	while (*stack_b)
 	{
 		tmp = *stack_b;
 		steps = find_cheapest_steps_to_a(*stack_a, *stack_b);
 		while (steps >= 0 && tmp)
 		{
-			if (steps == if_rarb(*stack_a, *stack_b, tmp -> nbr, 2))
+			if (steps == if_rrarrb(*stack_a, *stack_b, tmp -> nbr, 2))
+				steps = execute_rrarrb(stack_a, stack_b, tmp -> nbr, 2);
+			else if (steps == if_rarb(*stack_a, *stack_b, tmp -> nbr, 2))
 				steps = execute_rarb(stack_a, stack_b, tmp -> nbr, 2);
 			else if (steps == if_rrarb(*stack_a, *stack_b, tmp -> nbr, 2))
 				steps = execute_rrarb(stack_a, stack_b, tmp -> nbr, 2);
 			else if (steps == if_rarrb(*stack_a, *stack_b, tmp -> nbr, 2))
 				steps = execute_rarrb(stack_a, stack_b, tmp -> nbr, 2);
-			else if (steps == if_rrarrb(*stack_a, *stack_b, tmp -> nbr, 2))
-				steps = execute_rrarrb(stack_a, stack_b, tmp -> nbr, 2);
 			else
 				tmp = tmp -> next;
 		}
@@ -122,12 +123,12 @@ void	sort_3(t_stack **stack)
 
 	min = min_value(*stack);
 	max = max_value(*stack);
-	if ((*stack) -> nbr == min)
+	if ((*stack)-> nbr == min)
 	{
+		rev_rotate(stack, 1, 0);
 		swap(stack, 1, 0);
-		rotate(stack, 1, 0);
 	}
-	else if ((*stack) -> nbr == max)
+	else if ((*stack)-> nbr == max)
 	{
 		rotate(stack, 1, 0);
 		if (!is_sorted(*stack))
@@ -141,6 +142,7 @@ void	sort_3(t_stack **stack)
 			rev_rotate(stack, 1, 0);
 	}
 }
+
 /*
 	If there are only 2 elements there , then just needs to simply swap stack_a.
 	And finally it makes final sort in stack_a after all values pushed to stack_b,
@@ -168,14 +170,14 @@ void	sort_ascending(t_stack **stack_a)
 		// min_value to the top
 		if (i < stack_size(*stack_a) / 2)
 		{
-			while ((*stack_a) -> nbr != min)
+			while ((*stack_a)-> nbr != min)
 				rotate(stack_a, 1, 0);
 		}
 		// if the index of min_value is closer to the bottom, then reverse rotate stack_a to bring
 		// min_value to the top
 		else
 		{
-			while ((*stack_a) -> nbr != min)
+			while ((*stack_a)-> nbr != min)
 				rev_rotate(stack_a, 1, 0);
 		}
 	}

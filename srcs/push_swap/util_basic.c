@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 13:19:23 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/08 08:05:58 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/09 12:53:09 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	free_stack(t_stack **stack)
 		return ;
 	while (*stack)
 	{
-		tmp = (*stack) -> next;
-		(*stack) -> nbr = 0;
+		tmp = (*stack)-> next;
+		(*stack)-> nbr = 0;
 		free(*stack);
 		*stack = tmp;
 	}
@@ -42,7 +42,9 @@ void	free_str(char **str)
 	*str = NULL;
 }
 
-// fd = 2, is for standard error
+/*
+	fd = 2, is for standard error
+*/
 void	ft_error(void)
 {
 	write(2, "Error\n", 6);
@@ -58,7 +60,7 @@ void	ft_error(void)
 		1:	sorted;
 		0:	not sorted;
 */
-int		is_sorted(t_stack *stack)
+int	is_sorted(t_stack *stack)
 {
 	t_stack		*tmp;
 
@@ -67,7 +69,7 @@ int		is_sorted(t_stack *stack)
 	tmp = stack;
 	while (tmp -> next)
 	{
-		if (tmp -> nbr > (tmp -> next) -> nbr)
+		if (tmp -> nbr > (tmp -> next)-> nbr)
 			return (0);
 		tmp = tmp -> next;
 	}

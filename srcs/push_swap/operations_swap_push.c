@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 13:36:19 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/08 08:05:25 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/09 12:11:11 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,17 @@ void	swap(t_stack **s, int direction, int if_print)
 {
 	t_stack		*tmp;
 
-	if (!s || !*s || !(*s) -> next)
+	if (!s || !*s || !(*s)-> next)
 		return ;
 	tmp = *s;
-	(*s) = (*s) -> next;
-	tmp -> next = (*s) -> next;
-	(*s) -> next = tmp;
+	(*s) = (*s)-> next;
+	tmp -> next = (*s)-> next;
+	(*s)-> next = tmp;
 	if (if_print == 0)
 	{
 		if (direction == 1)
 			write(1, "sa\n", 3);
-		else if (direction  == 2)
+		else if (direction == 2)
 			write(1, "sb\n", 3);
 	}
 }
@@ -62,15 +62,14 @@ void	push(t_stack **depa, t_stack **dest, int direction, int if_print)
 	if (!depa || !dest || !*depa)
 		return ;
 	tmp = *depa;
-	*depa = (*depa) -> next;
+	*depa = (*depa)-> next;
 	tmp -> next = *dest;
 	*dest = tmp;
 	if (if_print == 0)
 	{
 		if (direction == 1)
 			write(1, "pa\n", 3);
-		else if (direction  == 2)
+		else if (direction == 2)
 			write(1, "pb\n", 3);
 	}
 }
-

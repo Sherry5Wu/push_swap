@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 12:03:36 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/08 12:52:12 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/09 11:54:55 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ int			find_cheapest_steps_to_b(t_stack *a, t_stack *b);
 int			find_cheapest_steps_to_a(t_stack *a, t_stack *b);
 
 // sort_caculate_steps_assit
-int			if_rarb(t_stack *stack_a, t_stack *stack_b, int num, int direction);
-int			if_rrarrb(t_stack *stack_a, t_stack *stack_b, int num, int direction);
-int			if_rrarb(t_stack *stack_a, t_stack *stack_b, int num, int direction);
-int			if_rarrb(t_stack *stack_a, t_stack *stack_b, int num, int direction);
+int			if_rarb(t_stack *a, t_stack *b, int num, int direction);
+int			if_rrarrb(t_stack *a, t_stack *b, int num, int direction);
+int			if_rrarb(t_stack *a, t_stack *b, int num, int direction);
+int			if_rarrb(t_stack *a, t_stack *b, int num, int direction);
 
 // operations_swap_push
 void		swap(t_stack **s, int direction, int if_print);
@@ -57,10 +57,10 @@ void		rev_rotate(t_stack **s, char direction, int if_print);
 void		rev_rotate_rrr(t_stack **stack_a, t_stack **stack_b, int if_print);
 
 // operation_combs
-int			execute_rarb(t_stack **stack_a, t_stack **stack_b, int num, int direction);
-int			execute_rrarrb(t_stack **stack_a, t_stack **stack_b, int num, int direction);
-int			execute_rrarb(t_stack **stack_a, t_stack **stack_b, int num, int direction);
-int			execute_rarrb(t_stack **stack_a, t_stack **stack_b, int num, int direction);
+int			execute_rarb(t_stack **a, t_stack **b, int num, int direction);
+int			execute_rrarrb(t_stack **a, t_stack **b, int num, int direction);
+int			execute_rrarb(t_stack **a, t_stack **b, int num, int direction);
+int			execute_rarrb(t_stack **a, t_stack **b, int num, int direction);
 
 // util_basic
 void		free_stack(t_stack **stack);

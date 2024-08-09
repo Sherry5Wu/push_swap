@@ -6,16 +6,13 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 12:20:29 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/08 14:58:41 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/09 12:12:30 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-
-#include <stdio.h>
-
-int		is_duplicated(t_stack *stack)
+int	is_duplicated(t_stack *stack)
 {
 	t_stack		*tmp_outer;
 	t_stack		*tmp_inner;
@@ -26,7 +23,7 @@ int		is_duplicated(t_stack *stack)
 	while (tmp_outer)
 	{
 		tmp_inner = tmp_outer -> next;
-		while(tmp_inner)
+		while (tmp_inner)
 		{
 			if ((tmp_outer -> nbr) == (tmp_inner -> nbr))
 				return (1);
@@ -69,7 +66,7 @@ void	sub_process(char *str, t_stack **a)
 	- when there is non-integer characters;
 	- when it is overflow.
 */
-int		ft_atoi_v2(char *str)
+int	ft_atoi_v2(char *str)
 {
 	long long int	num;
 	int				sign;
@@ -80,7 +77,7 @@ int		ft_atoi_v2(char *str)
 		str++;
 	if (*str == '-' || *str == '+')
 	{
-		if	(!*(str + 1))
+		if (!*(str + 1))
 			ft_error();
 		else if (*str++ == '-')
 			sign = -1;
@@ -88,12 +85,12 @@ int		ft_atoi_v2(char *str)
 	while (*str)
 	{
 		if (!ft_isdigit(*str))
-			write(1, "Must be all numbers\n", 20);
+			ft_error();
 		num = num * 10 + *str - '0';
 		str++;
 	}
 	if ((num * sign) > 2147483647 || (num * sign) < -2147483648)
-		write(1, "Input is overflowed\n", 20);
+		ft_error();
 	return ((num * sign));
 }
 
@@ -123,4 +120,3 @@ t_stack	*process_args(int argc, char **argv)
 	}
 	return (a);
 }
-

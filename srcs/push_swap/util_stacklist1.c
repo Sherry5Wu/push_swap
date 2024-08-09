@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 10:29:56 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/08 08:06:02 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/09 12:54:10 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ t_stack	*stack_newnode(int content)
 	newnode = (t_stack *)malloc(sizeof(t_stack));
 	if (!newnode)
 		return (NULL);
-	newnode-> nbr = content;
-	newnode-> next = NULL;
+	newnode -> nbr = content;
+	newnode -> next = NULL;
 	return (newnode);
 }
 
@@ -57,4 +57,3 @@ int	stack_size(t_stack *stack)
 	}
 	return (size);
 }
-

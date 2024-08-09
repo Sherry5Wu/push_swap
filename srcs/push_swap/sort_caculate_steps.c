@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 09:42:02 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/08 08:05:51 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/09 12:51:48 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 	To caculate if pushing a num from stack_a to stack_b, the chepeast step is how many.
 */
-int		find_cheapest_steps_to_b(t_stack *a, t_stack *b)
+int	find_cheapest_steps_to_b(t_stack *a, t_stack *b)
 {
 	t_stack		*tmp;
 	int			steps;
@@ -40,7 +40,7 @@ int		find_cheapest_steps_to_b(t_stack *a, t_stack *b)
 /*
 	To caculate if pushing a num from stack_b to stack_a, the chepeast step is how many.
 */
-int		find_cheapest_steps_to_a(t_stack *a, t_stack *b)
+int	find_cheapest_steps_to_a(t_stack *a, t_stack *b)
 {
 	t_stack		*tmp;
 	int			steps;

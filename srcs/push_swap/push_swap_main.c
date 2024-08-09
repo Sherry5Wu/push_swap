@@ -6,13 +6,13 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 09:38:23 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/08 14:05:24 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/09 12:12:48 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int		main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_stack		*a;
 
