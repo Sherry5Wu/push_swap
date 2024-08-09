@@ -1,25 +1,29 @@
-SRCS   := ${wildcard *.c}
-#HEADER   = get_next_line.h
-HEADER  = get_next_line_bonus.h
-
+NAME = get_next_line
 AR     = ar rc
 RM     = rm -f
-LIB    = ranlib
 CC     = cc
 CFLAGS = -Wall -Wextra -Werror
 
-NAME = test
+SRCS = get_next_line_utils.c get_next_line.c
+OBJS = $(SRCS:.c=.o)
 
-all: ${NAME}
+all: $(NAME)
 
-${NAME}: ${HEADER} ${SRCS}
-	${CC} ${CFLAGS} ${SRCS} -I $< -o $@
+$(NAME): $(OBJS)
+	@$(AR) $(NAME) $^
+	@echo "get_next_line compiled"
+
+%.o: %.c
+	@$(CC) $(CFLAGS) -fPIC -I. -c $< -o $@
+	@echo "Compiling: $<"
 
 clean:
-	${RM} ${OBJS}
+	@${RM} ${OBJS}
+	@echo "GNL object files are cleaned"
 
-fclean:
-	${RM} ${NAME}
+fclean: clean
+	@${RM} ${NAME}
+	@echo "GNL library file is cleaned"
 
 re:	fclean all
 

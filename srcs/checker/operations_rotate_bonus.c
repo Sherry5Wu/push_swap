@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 13:48:19 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/08 14:29:33 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/09 13:24:43 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,19 @@ void	rotate(t_stack **s, char direction, int if_print)
 {
 	t_stack		*tmp;
 
-	if (!s || !*s || !(*s) -> next)
+	if (!s || !*s || !(*s)-> next)
 		return ;
 	tmp = *s;
-	while ((*s) -> next)
-		*s = (*s) -> next;
-	(*s) -> next = tmp;
+	while ((*s)-> next)
+		*s = (*s)-> next;
+	(*s)-> next = tmp;
 	*s = tmp -> next;
 	tmp -> next = 0;
 	if (if_print == 0)
 	{
 		if (direction == 1)
 			write(1, "ra\n", 3);
-		else if (direction  == 2)
+		else if (direction == 2)
 			write(1, "rb\n", 3);
 	}
 }
@@ -73,16 +73,16 @@ void	rev_rotate(t_stack **s, char direction, int if_print)
 	t_stack		*tmp;
 	int			i;
 
-	if (!s || !*s || !(*s) -> next)
+	if (!s || !*s || !(*s)-> next)
 		return ;
 	tmp = *s;
 	i = 0;
-	while ((*s) -> next)
+	while ((*s)-> next)
 	{
-		*s = (*s) -> next;
+		*s = (*s)-> next;
 		i++;
 	}
-	(*s) -> next = tmp;
+	(*s)-> next = tmp;
 	while (i-- > 1)
 		tmp = tmp -> next;
 	tmp -> next = NULL;
@@ -90,7 +90,7 @@ void	rev_rotate(t_stack **s, char direction, int if_print)
 	{
 		if (direction == 1)
 			write(1, "rra\n", 4);
-		else if (direction  == 2)
+		else if (direction == 2)
 			write(1, "rrb\n", 4);
 	}
 }

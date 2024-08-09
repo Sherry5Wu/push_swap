@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 13:48:38 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/08 14:48:30 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/09 14:12:47 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "../lib/get_next_line/get_next_line.h"
 # include "../lib/libft/libft.h"
 
+# define ARG_MAX_NUM (1025)
+
 typedef struct s_stack
 {
 	int					nbr;
@@ -23,9 +25,9 @@ typedef struct s_stack
 }	t_stack;
 
 // checker_main_bonus
-void		check_sub(t_stack **a, t_stack **b, char *operation);
-char		*check(t_stack **a, t_stack **b, char *operation);
-void		checker_sub(t_stack **a, t_stack **b, char *operation);
+void		check_sub(t_stack **a, t_stack **b, char *instrcs);
+char		*check(t_stack **a, t_stack **b, char *instrcs);
+void		checker(t_stack **a, t_stack **b, char *instrcs);
 
 // process_args_bonus
 t_stack		*process_args(int argc, char **argv);
@@ -36,7 +38,7 @@ int			is_duplicated(t_stack *stack);
 // util_basic_bonus
 void		free_stack(t_stack **stack);
 void		free_str(char **str);
-void		ft_error(void);
+void		ft_error(int type);
 int			is_sorted(t_stack *stack);
 
 // operations_swap_push_bonus

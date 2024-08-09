@@ -6,16 +6,14 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 12:20:29 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/09 11:42:33 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/09 14:26:16 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../includes/checker_bonus.h"
 
 
-#include <stdio.h>
-
-int		is_duplicated(t_stack *stack)
+int	is_duplicated(t_stack *stack)
 {
 	t_stack		*tmp_outer;
 	t_stack		*tmp_inner;
@@ -81,19 +79,19 @@ int		ft_atoi_v2(char *str)
 	if (*str == '-' || *str == '+')
 	{
 		if	(!*(str + 1))
-			ft_error();
+			ft_error(1);
 		else if (*str++ == '-')
 			sign = -1;
 	}
 	while (*str)
 	{
 		if (!ft_isdigit(*str))
-			write(1, "Must be all numbers\n", 20);
+			ft_error(1);
 		num = num * 10 + *str - '0';
 		str++;
 	}
 	if ((num * sign) > 2147483647 || (num * sign) < -2147483648)
-		write(1, "Input is overflowed\n", 20);
+		ft_error(2);
 //	printf("integer=%lld\n", num * sign);  // remember to delete the line.
 	return ((num * sign));
 }
@@ -125,4 +123,3 @@ t_stack	*process_args(int argc, char **argv)
 	}
 	return (a);
 }
-

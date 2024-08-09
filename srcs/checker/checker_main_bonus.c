@@ -6,53 +6,53 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 13:41:10 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/08 15:00:33 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/09 14:19:58 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
+#include "../../includes/checker_bonus.h"
 
 /*
-	operate when the operation is in rra, rrb or rrr condition.
+	operate when the instruction is in rra, rrb or rrr condition.
 */
-void	check_sub(t_stack **a, t_stack **b, char *operation)
+void	check_sub(t_stack **a, t_stack **b, char *instrcs)
 {
-	if (operation[2] == 'a')
+	if (instrcs[2] == 'a')
 		rev_rotate(a, 1, 1);
-	else if (operation[2] == 'b')
+	else if (instrcs[2] == 'b')
 		rev_rotate(b, 2, 1);
-	else if (operation[2] == 'r')
+	else if (instrcs[2] == 'r')
 		rev_rotate_rrr(a, b, 1);
 }
 
 /*
-	Check the operations and execute them.
+	Check the instructions and execute them.
 */
-char	*check(t_stack **a, t_stack **b, char *operation)
+char	*check(t_stack **a, t_stack **b, char *instrcs)
 {
-	if (ft_strncmp(operation, "sa\n", ft_strlen(operation)) == 0)
+	if (instrcs[0] == 's' && instrcs[1] == 'a' && instrcs[2] == '\n')
 		swap(a, 1, 1);
-	else if (ft_strncmp(operation, "sb\n", ft_strlen(operation)) == 0)
+	else if (instrcs[0] == 's' && instrcs[1] == 'b' && instrcs[2] == '\n')
 		swap(b, 2, 1);
-	else if (ft_strncmp(operation, "ss\n", ft_strlen(operation)) == 0)
+	else if (instrcs[0] == 's' && instrcs[1] == 's' && instrcs[2] == '\n')
 	{
 		swap(a, 1, 1);
 		swap(b, 2, 1);
 	}
-	else if (ft_strncmp(operation, "pa\n", ft_strlen(operation)) == 0)
+	else if (instrcs[0] == 'p' && instrcs[1] == 'a' && instrcs[2] == '\n')
 		push(a, b, 1, 1);
-	else if (ft_strncmp(operation, "pb\n", ft_strlen(operation)) == 0)
+	else if (instrcs[0] == 'p' && instrcs[1] == 'b' && instrcs[2] == '\n')
 		push(a, b, 2, 1);
-	else if (ft_strncmp(operation, "ra\n", ft_strlen(operation)) == 0)
+	else if (instrcs[0] == 'r' && instrcs[1] == 'a' && instrcs[2] == '\n')
 		rotate(a, 1, 1);
-	else if (ft_strncmp(operation, "rb\n", ft_strlen(operation)) == 0)
+	else if (instrcs[0] == 'r' && instrcs[1] == 'b' && instrcs[2] == '\n')
 		rotate(b, 2, 1);
-	else if (ft_strncmp(operation, "rr\n", ft_strlen(operation)) == 0)
+	else if (instrcs[0] == 'r' && instrcs[1] == 'r' && instrcs[2] == '\n')
 		rotate_rr(a, b, 1);
-	else if (operation[0] == 'r' && operation[1] == 'r' && operation[3] == '\n')
-		check_sub(a, b , operation);
+	else if (instrcs[0] == 'r' && instrcs[1] == 'r' && instrcs[3] == '\n')
+		check_sub(a, b , instrcs);
 	else
-		ft_error();
+		ft_error(4);
 	return (get_next_line(0));
 }
 
@@ -65,14 +65,14 @@ char	*check(t_stack **a, t_stack **b, char *operation)
 	- Check if stack_a is sorted. If it isn't sorted, then print "KO";
 	- Other conditions, print "OK"
 */
-void	checker_sub(t_stack **a, t_stack **b, char *operation)
+void	checker(t_stack **a, t_stack **b, char *instrcs)
 {
 	char	*tmp;
 
-	while (operation && *operation != '\n')
+	while (instrcs && *instrcs != '\n')
 	{
-		tmp = operation;
-		operation = check(a, b, operation);
+		tmp = instrcs;
+		instrcs = check(a, b, instrcs);
 		free(tmp);
 	}
 	if (*b)
@@ -81,26 +81,29 @@ void	checker_sub(t_stack **a, t_stack **b, char *operation)
 		write(1, "KO\n", 3);
 	else
 		write(1, "OK\n", 3);
-	free(operation);
+	free(instrcs);
 }
 
 int		main(int ac, char **av)
 {
 	t_stack		*a;
 	t_stack		*b;
-	char		*operation;
+	char		*instrcs;
 
 	a = process_args((ac), av);
 	b = NULL;
 	if (!a || is_duplicated(a))
 	{
 		free_stack(&a);
-		write(1, "Duplicated numbers\n", 19); ??????
+		ft_error(3);
 	}
-	operation = get_next_line(0);
-	if (!operation && ) ??????
-	checker_sub(&a, &b, operation);
-
+	instrcs = get_next_line(0);
+	if (!instrcs && !is_sorted(a))
+		write(1, "KO\n", 3);
+	else if (!instrcs && is_sorted(a))
+		write(1, "OK\n", 3);
+	else
+		checker(&a, &b, instrcs);
 	free_stack(&a);
 	free_stack(&b);
 	exit(0);
