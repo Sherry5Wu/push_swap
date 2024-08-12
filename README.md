@@ -65,3 +65,10 @@ Your goal? Write a program in C called push_swap which calculates and displays o
 	https://github.com/LeoFu9487/push_swap_tester
 
 	https://github.com/o-reo/push_swap_visualizer
+
+# Note
+
+	- Based on the Norminette rules,you just can add comments at the top of the each file. So, please delete the function comments
+ 	before you push to git.
+
+	- When I included my previous projects libft and get_next_line, I re-edit both of Makefiles and changed some functions' name in 		get_next_line. So you might need adjust yours too, if it is needed.
