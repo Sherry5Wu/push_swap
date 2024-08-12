@@ -18,7 +18,7 @@ void	*free_mem(char **str)
 	return (NULL);
 }
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen_2(const char *str)
 {
 	int	i;
 
@@ -30,7 +30,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strchr_2(const char *str, int c)
 {
 	size_t	i;
 
@@ -48,7 +48,7 @@ char	*ft_strchr(const char *str, int c)
 	return (NULL);
 }
 
-char	*ft_strjoin(char *dest, char *src)
+char	*ft_strjoin_2(char *dest, char *src)
 {
 	char	*nstr;
 	size_t	i;
@@ -56,7 +56,7 @@ char	*ft_strjoin(char *dest, char *src)
 
 	if (!dest && !src)
 		return (NULL);
-	nstr = malloc(sizeof(char) * (ft_strlen(dest) + ft_strlen(src) + 1));
+	nstr = malloc(sizeof(char) * (ft_strlen_2(dest) + ft_strlen_2(src) + 1));
 	if (!nstr)
 		return (free_mem(&dest));
 	i = 0;
@@ -76,14 +76,14 @@ char	*ft_strjoin(char *dest, char *src)
 	return (nstr);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr_2(char const *s, unsigned int start, size_t len)
 {
 	char	*substr;
 	size_t	i;
 
 	if (!s)
 		return (NULL);
-	if (start > ft_strlen(s))
+	if (start > ft_strlen_2(s))
 	{
 		substr = (char *)malloc(sizeof(char));
 		if (!substr)
@@ -91,8 +91,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		substr[0] = '\0';
 		return (substr);
 	}
-	if (len > ft_strlen(s) - start)
-		len = ft_strlen(s) - start;
+	if (len > ft_strlen_2(s) - start)
+		len = ft_strlen_2(s) - start;
 	substr = (char *)malloc(sizeof(char) * (len + 1));
 	if (!substr)
 		return (NULL);

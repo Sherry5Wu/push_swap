@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 13:41:10 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/09 14:19:58 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/12 11:32:59 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 void	check_sub(t_stack **a, t_stack **b, char *instrcs)
 {
 	if (instrcs[2] == 'a')
-		rev_rotate(a, 1, 1);
+		rev_rotate_bns(a);
 	else if (instrcs[2] == 'b')
-		rev_rotate(b, 2, 1);
+		rev_rotate_bns(b);
 	else if (instrcs[2] == 'r')
-		rev_rotate_rrr(a, b, 1);
+		rev_rotate_rrr_bns(a, b);
 }
 
 /*
@@ -31,24 +31,24 @@ void	check_sub(t_stack **a, t_stack **b, char *instrcs)
 char	*check(t_stack **a, t_stack **b, char *instrcs)
 {
 	if (instrcs[0] == 's' && instrcs[1] == 'a' && instrcs[2] == '\n')
-		swap(a, 1, 1);
+		swap_bns(a);
 	else if (instrcs[0] == 's' && instrcs[1] == 'b' && instrcs[2] == '\n')
-		swap(b, 2, 1);
+		swap_bns(b);
 	else if (instrcs[0] == 's' && instrcs[1] == 's' && instrcs[2] == '\n')
 	{
-		swap(a, 1, 1);
-		swap(b, 2, 1);
+		swap_bns(a);
+		swap_bns(b);
 	}
 	else if (instrcs[0] == 'p' && instrcs[1] == 'a' && instrcs[2] == '\n')
-		push(a, b, 1, 1);
+		push_bns(b, a);
 	else if (instrcs[0] == 'p' && instrcs[1] == 'b' && instrcs[2] == '\n')
-		push(a, b, 2, 1);
+		push_bns(a, b);
 	else if (instrcs[0] == 'r' && instrcs[1] == 'a' && instrcs[2] == '\n')
-		rotate(a, 1, 1);
+		rotate_bns(a);
 	else if (instrcs[0] == 'r' && instrcs[1] == 'b' && instrcs[2] == '\n')
-		rotate(b, 2, 1);
+		rotate_bns(b);
 	else if (instrcs[0] == 'r' && instrcs[1] == 'r' && instrcs[2] == '\n')
-		rotate_rr(a, b, 1);
+		rotate_rr_bns(a, b);
 	else if (instrcs[0] == 'r' && instrcs[1] == 'r' && instrcs[3] == '\n')
 		check_sub(a, b , instrcs);
 	else
@@ -77,7 +77,7 @@ void	checker(t_stack **a, t_stack **b, char *instrcs)
 	}
 	if (*b)
 		write(1, "KO\n", 3);
-	else if (!is_sorted(a))
+	else if (!is_sorted(*a))
 		write(1, "KO\n", 3);
 	else
 		write(1, "OK\n", 3);
@@ -90,7 +90,7 @@ int		main(int ac, char **av)
 	t_stack		*b;
 	char		*instrcs;
 
-	a = process_args((ac), av);
+	a = process_args(ac, av);
 	b = NULL;
 	if (!a || is_duplicated(a))
 	{

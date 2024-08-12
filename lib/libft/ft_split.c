@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 13:55:50 by jingwu            #+#    #+#             */
-/*   Updated: 2024/05/07 11:54:56 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/12 08:40:08 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -30,6 +30,8 @@ static void	*free_memory(char **str)
 	size_t	i;
 
 	i = 0;
+	if (!str)
+		return (NULL);
 	while (str[i])
 		free(str[i++]);
 	free(str);

@@ -16,11 +16,11 @@ SRCS = $(addprefix $(SRCS_DIR),$(SRCS_O))
 OBJS = $(SRCS:.c=.o)
 
 GNL_DIR = lib/get_next_line
-GNL = $(GNL_DIR)/get_next_line.a
+GNL = $(GNL_DIR)/gnl
 
-SRCS_B_DIR = srcs/checker
+SRCS_B_DIR = srcs/checker/
 SRCS_BONUS_O = checker_main_bonus.c operations_rotate_bonus.c operations_swap_push_bonus.c \
-		process_args_bonus.c util_basic_bonus.c
+		process_args_bonus.c util_basic_bonus.c util_stacklist_bonus.c
 SRCS_BONUS = $(addprefix $(SRCS_B_DIR), $(SRCS_BONUS_O))
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
@@ -28,28 +28,30 @@ all: $(NAME)
 bonus: $(BONUS)
 
 $(NAME): $(OBJS)
-	make -C $(LIB_DIR)
-	$(CC) $(CFLAGS) -fPIC $(OBJS) $(LIBFT) -o $@
+	@make -C $(LIB_DIR)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $@
+	@echo "push_swap is generated!"
 
 $(BONUS): $(OBJS_BONUS)
-	make -C $(LIB_DIR)
-	make -C $(GNL_DIR)
-	$(CC) $(CFLAGS) -fPIC $(OBJS_BONUS) $(LIBFT) $(GNL) -o $@
+	@make -C $(LIB_DIR)
+	@make -C $(GNL_DIR)
+	@$(CC) $(CFLAGS) $(OBJS_BONUS) $(LIBFT) $(GNL) -o $@
+	@echo "checker is generated!"
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -fPIC -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 	@echo "Compiling: $<"
 
 clean:
-	@$(RM) $(OBJS)
+	@$(RM) $(OBJS) $(OBJS_BONUS)
 	@make clean -C $(LIB_DIR)
-	@make clean -C $(GNL)
+	@make clean -C $(GNL_DIR)
 	@echo "push_swap objects are cleaned!"
 
 fclean: clean
-	@$(RM) $(NAME)
+	@$(RM) $(NAME) $(BONUS)
 	@make fclean -C $(LIB_DIR)
-	@make fclean -C $(GNL)
+	@make fclean -C $(GNL_DIR)
 	@echo "All executable files are cleaned!"
 
 re: fclean all

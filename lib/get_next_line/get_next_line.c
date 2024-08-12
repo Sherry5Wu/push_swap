@@ -20,7 +20,7 @@ static char	*get_buffer(int fd, char *buffer)
 	if (!tmp_buffer)
 		return (free_mem(&buffer));
 	read_bytes = 1;
-	while (!buffer || (buffer && !ft_strchr(buffer, '\n') && read_bytes > 0))
+	while (!buffer || (buffer && !ft_strchr_2(buffer, '\n') && read_bytes > 0))
 	{
 		read_bytes = read(fd, tmp_buffer, BUFFER_SIZE);
 		if (read_bytes == -1)
@@ -31,7 +31,7 @@ static char	*get_buffer(int fd, char *buffer)
 		if (read_bytes == 0)
 			break ;
 		tmp_buffer[read_bytes] = '\0';
-		buffer = ft_strjoin(buffer, tmp_buffer);
+		buffer = ft_strjoin_2(buffer, tmp_buffer);
 	}
 	free(tmp_buffer);
 	if (!buffer)
@@ -51,7 +51,7 @@ static char	*get_the_line(char *buffer)
 		size++;
 	if (buffer[size] == '\n')
 		size++;
-	line = ft_substr(buffer, 0, size);
+	line = ft_substr_2(buffer, 0, size);
 	if (!line)
 		return (NULL);
 	return (line);
@@ -75,7 +75,7 @@ static char	*get_rest(char *buffer)
 		rest = NULL;
 		return (free_mem(&buffer));
 	}
-	rest = ft_substr(buffer, (i + 1), (ft_strlen(buffer) - (i + 1)));
+	rest = ft_substr_2(buffer, (i + 1), (ft_strlen_2(buffer) - (i + 1)));
 	if (!rest)
 		return (free_mem(&buffer));
 	free_mem(&buffer);

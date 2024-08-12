@@ -16,15 +16,15 @@
 #  define BUFFER_SIZE 10
 # endif
 
-//# include <unistd.h>
+# include <unistd.h>
 # include <stdlib.h>
 # include <sys/types.h>
 
 char	*get_next_line(int fd);
-char	*ft_strchr(const char *str, int c);
-char	*ft_strjoin(char *dest, char *src);
-size_t	ft_strlen(const char *str);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strchr_2(const char *str, int c);
+char	*ft_strjoin_2(char *dest, char *src);
+size_t	ft_strlen_2(const char *str);
+char	*ft_substr_2(char const *s, unsigned int start, size_t len);
 void	*free_mem(char **str);
 
 #endif

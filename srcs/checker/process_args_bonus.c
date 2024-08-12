@@ -6,12 +6,11 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 12:20:29 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/09 14:26:16 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/12 11:59:16 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/checker_bonus.h"
-
 
 int	is_duplicated(t_stack *stack)
 {
@@ -47,10 +46,11 @@ void	sub_process(char *str, t_stack **a)
 
 	i = 0;
 	split_str = ft_split(str, 32);
-	if (!split_str)
+	if (!split_str || !(*split_str))
 	{
 		free_stack(a);
-		exit(1);
+		free_str(split_str);
+		ft_error(6);
 	}
 	while (split_str[i])
 	{
@@ -92,7 +92,6 @@ int		ft_atoi_v2(char *str)
 	}
 	if ((num * sign) > 2147483647 || (num * sign) < -2147483648)
 		ft_error(2);
-//	printf("integer=%lld\n", num * sign);  // remember to delete the line.
 	return ((num * sign));
 }
 
@@ -113,9 +112,10 @@ t_stack	*process_args(int argc, char **argv)
 
 	a = NULL;
 	i = 1;
-//	printf("agrc=%d\n", argc);  // remember to delete the line.
-	if (argc < 2 || argc > ARG_MAX_NUM)
+	if (argc <= 1)
 		exit(1);
+	else if (argc > ARG_MAX_NUM)
+		ft_error(5);
 	while (i < argc)
 	{
 		sub_process(argv[i], &a);

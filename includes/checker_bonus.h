@@ -6,12 +6,12 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 13:48:38 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/09 14:12:47 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/12 11:14:29 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_BONUS.H
-# define CHECKER_BONUS.H
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 
 # include "../lib/get_next_line/get_next_line.h"
 # include "../lib/libft/libft.h"
@@ -42,13 +42,18 @@ void		ft_error(int type);
 int			is_sorted(t_stack *stack);
 
 // operations_swap_push_bonus
-void		swap(t_stack **s, int direction, int if_print);
-void		push(t_stack **depa, t_stack **dest, int direction, int if_print);
+void		swap_bns(t_stack **s);
+void		push_bns(t_stack **depa, t_stack **dest);
 
 // operations_rotate_bonus
-void		rotate(t_stack **s, char direction, int if_print);
-void		rotate_rr(t_stack **stack_a, t_stack **stack_b, int if_print);
-void		rev_rotate(t_stack **s, char direction, int if_print);
-void		rev_rotate_rrr(t_stack **stack_a, t_stack **stack_b, int if_print);
+void		rotate_bns(t_stack **s);
+void		rotate_rr_bns(t_stack **stack_a, t_stack **stack_b);
+void		rev_rotate_bns(t_stack **s);
+void		rev_rotate_rrr_bns(t_stack **stack_a, t_stack **stack_b);
+
+// util_stacklist_bonus
+void		stack_add_back(t_stack **stack, t_stack *new);
+t_stack		*stack_newnode(int content);
+t_stack		*stack_last(t_stack *stack);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 12:20:29 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/09 12:12:30 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/12 10:41:11 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,11 @@ void	sub_process(char *str, t_stack **a)
 
 	i = 0;
 	split_str = ft_split(str, 32);
-	if (!split_str)
+	if (!split_str || !(*split_str))
 	{
 		free_stack(a);
-		exit(1);
+		free_str(split_str);
+		ft_error();
 	}
 	while (split_str[i])
 	{

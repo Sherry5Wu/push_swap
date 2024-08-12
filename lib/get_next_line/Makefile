@@ -1,4 +1,4 @@
-NAME = get_next_line
+NAME = gnl
 AR     = ar rc
 RM     = rm -f
 CC     = cc
@@ -10,7 +10,7 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(AR) $(NAME) $^
+	$(AR) $(NAME) $^
 	@echo "get_next_line compiled"
 
 %.o: %.c
@@ -19,11 +19,11 @@ $(NAME): $(OBJS)
 
 clean:
 	@${RM} ${OBJS}
-	@echo "GNL object files are cleaned"
+	@echo "Gnl object files are cleaned"
 
 fclean: clean
 	@${RM} ${NAME}
-	@echo "GNL library file is cleaned"
+	@echo "Gnl library file is cleaned"
 
 re:	fclean all
 

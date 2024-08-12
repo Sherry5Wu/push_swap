@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 13:19:23 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/09 14:05:30 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/12 10:45:08 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,17 @@ void	free_str(char **str)
 void	ft_error(int type)
 {
 	if (type == 1)
-		write(1, "Must be all numbers\n", 20);
+		write(2, "Must be all numbers\n", 20);
 	else if (type == 2)
-		write(1, "Input is overflowed\n", 20);
+		write(2, "Input is overflowed\n", 20);
 	else if (type == 3)
-		write(1, "Duplicated numbers\n", 19);
+		write(2, "Duplicated numbers\n", 19);
 	else if (type == 4)
-		write(1, "Instruction is not correct\n", 27);
+		write(2, "Instruction is not correct\n", 27);
+	else if (type == 5)
+		write(2, "Too many arguments!\n", 20);
+	else
+		write(2, "Error!\n", 7);
 	exit(1);
 }
 
