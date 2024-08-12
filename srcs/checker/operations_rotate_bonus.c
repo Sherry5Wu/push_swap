@@ -6,11 +6,10 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 13:48:19 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/12 11:15:04 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/12 13:29:01 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../../includes/push_swap.h"
+#include "../../includes/checker_bonus.h"
 
 /*
 	Shift up all elements of a stack by 1. The first element becomes the last one.

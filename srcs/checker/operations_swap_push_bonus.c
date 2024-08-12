@@ -6,11 +6,10 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 13:36:19 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/12 11:14:39 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/12 13:24:44 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../../includes/push_swap.h"
+#include "../../includes/checker_bonus.h"
 
 /*
 	swap the top two elements in the stack.
@@ -51,4 +50,3 @@ void	push_bns(t_stack **depa, t_stack **dest)
 	tmp -> next = *dest;
 	*dest = tmp;
 }
-

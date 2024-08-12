@@ -6,10 +6,9 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 13:41:10 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/12 11:32:59 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/12 13:22:34 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "../../includes/checker_bonus.h"
 
 /*
@@ -50,7 +49,7 @@ char	*check(t_stack **a, t_stack **b, char *instrcs)
 	else if (instrcs[0] == 'r' && instrcs[1] == 'r' && instrcs[2] == '\n')
 		rotate_rr_bns(a, b);
 	else if (instrcs[0] == 'r' && instrcs[1] == 'r' && instrcs[3] == '\n')
-		check_sub(a, b , instrcs);
+		check_sub(a, b, instrcs);
 	else
 		ft_error(4);
 	return (get_next_line(0));
@@ -84,7 +83,7 @@ void	checker(t_stack **a, t_stack **b, char *instrcs)
 	free(instrcs);
 }
 
-int		main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_stack		*a;
 	t_stack		*b;

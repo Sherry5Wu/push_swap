@@ -6,11 +6,10 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 10:29:56 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/12 09:49:50 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/12 13:27:35 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../../includes/push_swap.h"
+#include "../../includes/checker_bonus.h"
 
 void	stack_add_back(t_stack **stack, t_stack *new)
 {

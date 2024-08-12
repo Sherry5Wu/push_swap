@@ -6,10 +6,9 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 12:20:29 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/12 11:59:16 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/12 13:26:07 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "../../includes/checker_bonus.h"
 
 int	is_duplicated(t_stack *stack)
@@ -23,7 +22,7 @@ int	is_duplicated(t_stack *stack)
 	while (tmp_outer)
 	{
 		tmp_inner = tmp_outer -> next;
-		while(tmp_inner)
+		while (tmp_inner)
 		{
 			if ((tmp_outer -> nbr) == (tmp_inner -> nbr))
 				return (1);
@@ -67,7 +66,7 @@ void	sub_process(char *str, t_stack **a)
 	- when there is non-integer characters;
 	- when it is overflow.
 */
-int		ft_atoi_v2(char *str)
+int	ft_atoi_v2(char *str)
 {
 	long long int	num;
 	int				sign;
@@ -78,7 +77,7 @@ int		ft_atoi_v2(char *str)
 		str++;
 	if (*str == '-' || *str == '+')
 	{
-		if	(!*(str + 1))
+		if (!*(str + 1))
 			ft_error(1);
 		else if (*str++ == '-')
 			sign = -1;

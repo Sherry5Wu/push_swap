@@ -6,10 +6,9 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 13:19:23 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/12 13:07:21 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/12 13:26:58 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "../../includes/checker_bonus.h"
 
 void	free_stack(t_stack **stack)
@@ -74,7 +73,7 @@ void	ft_error(int type)
 		1:	sorted;
 		0:	not sorted;
 */
-int		is_sorted(t_stack *stack)
+int	is_sorted(t_stack *stack)
 {
 	t_stack		*tmp;
 
