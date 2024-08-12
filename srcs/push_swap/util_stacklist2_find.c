@@ -78,22 +78,22 @@ int	find_index(t_stack *stack, int value)
 			   condition, that is when num_a is the first number and num_b is the last
 			   number, so we need to use a seperate "if" for checking this condition.
 */
-int	find_place_in_stack_b(t_stack *stack, int nbr_push)
+int	find_place_in_stack_b(t_stack *b, int num)
 {
 	int		index;
 	t_stack	*tmp;
 
 	index = 1;
-	if (nbr_push > (stack -> nbr) && nbr_push < (stack_last(stack)-> nbr))
+	if (num > (b -> nbr) && num < (stack_last(b)-> nbr))
 		index = 0;
-	else if (nbr_push > max_value(stack) || nbr_push < min_value(stack))
-		index = find_index(stack, max_value(stack));
+	else if (num > max_value(b) || num < min_value(b))
+		index = find_index(b, max_value(b));
 	else
 	{
-		tmp = stack-> next;
-		while ((tmp -> next) && (nbr_push > (stack -> nbr) || nbr_push < (tmp -> nbr)))
+		tmp = b-> next;
+		while ((tmp -> next) && (num > (b -> nbr) || num < (tmp -> nbr)))
 		{
-			stack = stack -> next;
+			b = b -> next;
 			tmp = tmp -> next;
 			index++;
 		}
@@ -121,22 +121,22 @@ int	find_place_in_stack_b(t_stack *stack, int nbr_push)
 			   condition, that is when num_a is the first number and num_b is the last
 			   number, so we need to use a seperate "if" for checking this condition.
 */
-int	find_place_in_stack_a(t_stack *stack, int nbr_push)
+int	find_place_in_stack_a(t_stack *a, int num)
 {
 	int		index;
 	t_stack	*tmp;
 
 	index = 1;
-	if (nbr_push < (stack -> nbr) && nbr_push > (stack_last(stack)-> nbr))
+	if (num < (a -> nbr) && num > (stack_last(a)-> nbr))
 		index = 0;
-	else if (nbr_push > max_value(stack) || nbr_push < min_value(stack))
-		index = find_index(stack, min_value(stack));
+	else if (num > max_value(a) || num < min_value(a))
+		index = find_index(a, min_value(a));
 	else
 	{
-		tmp = stack-> next;
-		while ((tmp -> next) && (nbr_push < (stack -> nbr) || nbr_push > (tmp -> nbr)))
+		tmp = a-> next;
+		while ((tmp -> next) && (num < (a -> nbr) || num > (tmp -> nbr)))
 		{
-			stack = stack -> next;
+			a = a -> next;
 			tmp = tmp -> next;
 			index++;
 		}
