@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 13:19:23 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/12 10:33:08 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/12 13:07:49 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,14 @@ void	free_stack(t_stack **stack)
 
 void	free_str(char **str)
 {
-	char	*tmp;
+	size_t	i;
 
-	if (!str || !(*str))
+	if (!str)
 		return ;
-	while (*str)
-	{
-		tmp = *str;
-		str++;
-		free(tmp);
-	}
-	*str = NULL;
+	i = 0;
+	while (str[i])
+		free(str[i++]);
+	free(str);
 }
 
 /*
