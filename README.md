@@ -50,9 +50,9 @@ Your goal? Write a program in C called push_swap which calculates and displays o
 	-  If the number you push from STACK_A to STACK_B is going to be the new biggest or the smallest number,
  	   you should place it just above the old biggest number in the STACK_B.
 
-     	For more clearly explaination, check "https://medium.com/@ayogun/push-swap-c1f5d2d41e97".
+     For more clearly explaination, check "https://medium.com/@ayogun/push-swap-c1f5d2d41e97".
 
-      ## how to find the cheapest cost of a number?
+## how to find the cheapest cost of a number?
       		
 
 # Resources
