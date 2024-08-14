@@ -68,7 +68,8 @@ Solution 1:
     			cheapest_moves = index_a;
        		else
 	 		cheapest_moves = index_b;
-	}	
+	}
+ 
    	if (index_a > (size_a / 2) && index_b > (size_b / 2))
     	{
      		if ((size_a - index_a) > (size_b - index_b))
@@ -78,7 +79,8 @@ Solution 1:
 	}
  	if (index_a > (size_a / 2) && index_b < (size_b / 2))
   		cheapest_moves = (size_a - index_a) + index_b;
-    	if (index_a < (size_a / 2) && index_b > (size_b / 2))
+    	
+     	if (index_a < (size_a / 2) && index_b > (size_b / 2))
      		cheapest_moves = index_a + (size_b - index_b);
 	
 
