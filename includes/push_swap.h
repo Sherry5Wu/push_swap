@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 12:03:36 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/09 11:54:55 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/14 10:47:51 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,13 @@ typedef struct s_stack
 	struct s_stack		*next;
 }	t_stack;
 
+// push_swap_main
+void		check_args(int ac, char **av);
+
 // process_args
 t_stack		*process_args(int argc, char **argv);
 void		sub_process(char *str, t_stack **a);
-int			ft_atoi_v2(char *str);
+int			ft_atoi_v2(char *str, t_stack **stack, char **strs);
 int			is_duplicated(t_stack *stack);
 
 // sort_ascending
@@ -64,6 +67,7 @@ int			execute_rarrb(t_stack **a, t_stack **b, int num, int direction);
 
 // util_basic
 void		free_stack(t_stack **stack);
+void		free_strs_stack(char **strs, t_stack **stack);
 void		free_str(char **str);
 void		ft_error(void);
 int			is_sorted(t_stack *stack);
@@ -78,7 +82,7 @@ int			stack_size(t_stack *stack);
 int			min_value(t_stack *stack);
 int			max_value(t_stack *stack);
 int			find_index(t_stack *stack, int value);
-int			find_place_in_stack_b(t_stack *stack_a, int nbr_push);
-int			find_place_in_stack_a(t_stack *stack_b, int nbr_push);
+int			find_place_in_stack_b(t_stack *a, int num);
+int			find_place_in_stack_a(t_stack *b, int num);
 
 #endif

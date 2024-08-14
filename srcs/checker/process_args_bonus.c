@@ -6,9 +6,10 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 12:20:29 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/12 13:26:07 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/14 10:46:25 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../../includes/checker_bonus.h"
 
 int	is_duplicated(t_stack *stack)
@@ -46,14 +47,10 @@ void	sub_process(char *str, t_stack **a)
 	i = 0;
 	split_str = ft_split(str, 32);
 	if (!split_str || !(*split_str))
-	{
-		free_stack(a);
-		free_str(split_str);
-		ft_error(6);
-	}
+		free_strs_stack(split_str, a, 6);
 	while (split_str[i])
 	{
-		j = ft_atoi_v2(split_str[i]);
+		j = ft_atoi_v2(split_str[i], split_str, a);
 		stack_add_back(a, stack_newnode(j));
 		i++;
 	}
@@ -66,7 +63,7 @@ void	sub_process(char *str, t_stack **a)
 	- when there is non-integer characters;
 	- when it is overflow.
 */
-int	ft_atoi_v2(char *str)
+int	ft_atoi_v2(char *str, char **strs, t_stack **stack)
 {
 	long long int	num;
 	int				sign;
@@ -78,19 +75,19 @@ int	ft_atoi_v2(char *str)
 	if (*str == '-' || *str == '+')
 	{
 		if (!*(str + 1))
-			ft_error(1);
+			free_strs_stack(strs, stack, 1);
 		else if (*str++ == '-')
 			sign = -1;
 	}
 	while (*str)
 	{
 		if (!ft_isdigit(*str))
-			ft_error(1);
+			free_strs_stack(strs, stack, 1);
 		num = num * 10 + *str - '0';
 		str++;
 	}
 	if ((num * sign) > 2147483647 || (num * sign) < -2147483648)
-		ft_error(2);
+		free_strs_stack(strs, stack, 2);
 	return ((num * sign));
 }
 

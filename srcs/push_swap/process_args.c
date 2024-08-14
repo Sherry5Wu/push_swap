@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 12:20:29 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/12 10:41:11 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/14 10:48:53 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,10 @@ void	sub_process(char *str, t_stack **a)
 	i = 0;
 	split_str = ft_split(str, 32);
 	if (!split_str || !(*split_str))
-	{
-		free_stack(a);
-		free_str(split_str);
-		ft_error();
-	}
+		free_strs_stack(split_str, a);
 	while (split_str[i])
 	{
-		j = ft_atoi_v2(split_str[i]);
+		j = ft_atoi_v2(split_str[i], a, split_str);
 		stack_add_back(a, stack_newnode(j));
 		i++;
 	}
@@ -66,8 +62,12 @@ void	sub_process(char *str, t_stack **a)
 	Here it will show error:
 	- when there is non-integer characters;
 	- when it is overflow.
+
+	Note:
+		here passing stack and strs to ft_atoi_v2 is only for when there is an
+		error, you can free then properly.
 */
-int	ft_atoi_v2(char *str)
+int	ft_atoi_v2(char *str, t_stack **stack, char **strs)
 {
 	long long int	num;
 	int				sign;
@@ -79,19 +79,19 @@ int	ft_atoi_v2(char *str)
 	if (*str == '-' || *str == '+')
 	{
 		if (!*(str + 1))
-			ft_error();
+			free_strs_stack(strs, stack);
 		else if (*str++ == '-')
 			sign = -1;
 	}
 	while (*str)
 	{
 		if (!ft_isdigit(*str))
-			ft_error();
+			free_strs_stack(strs, stack);
 		num = num * 10 + *str - '0';
 		str++;
 	}
 	if ((num * sign) > 2147483647 || (num * sign) < -2147483648)
-		ft_error();
+		free_strs_stack(strs, stack);
 	return ((num * sign));
 }
 

@@ -6,9 +6,10 @@
 /*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 13:19:23 by jingwu            #+#    #+#             */
-/*   Updated: 2024/08/12 13:26:58 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/08/14 10:40:51 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../../includes/checker_bonus.h"
 
 void	free_stack(t_stack **stack)
@@ -36,6 +37,15 @@ void	free_str(char **str)
 	while (str[i])
 		free(str[i++]);
 	free(str);
+}
+
+void	free_strs_stack(char **strs, t_stack **stack, int error_type)
+{
+	if (strs)
+		free_str(strs);
+	if (stack)
+		free_stack(stack);
+	ft_error(error_type);
 }
 
 /*
