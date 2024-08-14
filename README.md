@@ -52,8 +52,35 @@ Your goal? Write a program in C called push_swap which calculates and displays o
 
      For more clearly explaination, check "https://medium.com/@ayogun/push-swap-c1f5d2d41e97".
 
-## how to find the cheapest cost of a number?
-      		
+## how to find the cheapest moves for a number? (I used solution 2)
+
+For example, if we want to move number "nbr" from stack_a to stack_b.
+size_a: the size of stack_a;
+size_b: the size of stack_b;
+index_a: the index of nbr in stack_a;
+index_b: we should push nbr to location index_b in stack_b;
+
+Solution 1:
+
+	if (index_a < (size_a / 2) && index_b < (size_b / 2))
+ 	{
+  		if (index_a > index_b)
+    			cheapest_moves = index_a;
+       		else
+	 		cheapest_moves = index_b;
+	}	
+   	if (index_a > (size_a / 2) && index_b > (size_b / 2))
+    	{
+     		if ((size_a - index_a) > (size_b - index_b))
+       			cheapest_moves = size_a - index_a;
+	  	else
+    			cheapest_moves = size_b - index_b;
+	}
+ 	if (index_a > (size_a / 2) && index_b < (size_b / 2))
+  		cheapest_moves = (size_a - index_a) + index_b;
+    	if (index_a < (size_a / 2) && index_b > (size_b / 2))
+     		cheapest_moves = index_a + (size_b - index_b);
+	
 
 # Resources
 
