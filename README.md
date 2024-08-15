@@ -119,3 +119,11 @@ Solution 2:
  	before you push to git.
 
 	- When I included my previous projects libft and get_next_line, I re-edit both of Makefiles and changed some functions' name in 		get_next_line. So you might need adjust yours too, if it is needed.
+
+# Result
+![result](https://github.com/user-attachments/assets/82b7599d-fe9d-4edf-9504-98d9fe322dcd)
+
+![random_100_num](https://github.com/user-attachments/assets/f3eecf5f-09ae-45d7-999b-462f62a308b5)
+
+![random_500_num](https://github.com/user-attachments/assets/4e51ea37-eae8-41ea-bc75-a728d9906b1f)
+
