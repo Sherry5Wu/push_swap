@@ -97,6 +97,27 @@ Solution 2:
 		cheapest_moves = if_rrarrb();
 	return (cheapest_moves);
 
+# How does it work?
+
+First compile the project with make:
+
+	make
+	
+In case you wanna run the bonus project:
+
+	make bonus
+	
+So, run ./push_swap followed by nums:
+	
+	./push_swap 2 -1 0 9 7	
+
+For bonus:
+	
+	./checker 2 1 0
+ 	ra
+  	sa
+   	(CTRL+D)
+
 # Resources
 
 	https://medium.com/@ayogun/push-swap-c1f5d2d41e97
