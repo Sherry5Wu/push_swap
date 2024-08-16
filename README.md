@@ -148,3 +148,7 @@ For bonus:
 
 ![random_500_num](https://github.com/user-attachments/assets/4e51ea37-eae8-41ea-bc75-a728d9906b1f)
 
+# Errors found after commit
+
+	In function sub_process, after call stack_add_back, didn't check if there is an error generate inside
+ 	stack_add_back. Because if there is an error happened, we need to free stack_a and split_str, otherwise it will cause memory leak.
