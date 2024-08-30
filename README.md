@@ -97,6 +97,11 @@ Solution 2:
 		cheapest_moves = if_rrarrb();
 	return (cheapest_moves);
 
+# Flowchart
+
+![push_swap_flowchart](https://github.com/user-attachments/assets/79b64210-68ce-4805-81db-9f7fee09392a)
+
+
 # How does it work?
 
 First compile the project with make:
