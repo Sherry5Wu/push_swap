@@ -72,6 +72,8 @@ pa
 rra
 rra
 ```
+![mandtory](https://github.com/user-attachments/assets/d7e3f4ff-cb27-48b7-8f5d-61efd1828cbe)
+
 For bonus:
 ```bash
 ./checker 2 1 0
@@ -82,6 +84,8 @@ then press "CTRL+D", you will see it print:
 ```bash
 OK
 ```
+![bonus](https://github.com/user-attachments/assets/7f30a04e-9564-427f-a033-4ef42d30d222)
+
 it means if you want to sort "2 1 0", using "ra" and "sa" operation is OK.
 
 ## Algorithm
@@ -145,7 +149,6 @@ Solution 2:
 ## Flowchart
 
 ![push_swap_flowchart](https://github.com/user-attachments/assets/79b64210-68ce-4805-81db-9f7fee09392a)
-
 
 ## Resources
 
